@@ -1,38 +1,37 @@
 <template>
   <div class="box">
-    <div class="columns"></div>
-    <div
-      class="columns is-8"
-      role="form"
-      aria-label="Formulário para criação de uma nova tarefa"
-    >
-      <input
-        type="text"
-        class="input"
-        placeholder="Qual tarefa você deseja iniciar?"
-      />
-    </div>
-
-    <div class="column">
+    <div class="columns">
       <div
-        class="is-flex is-align-items-center is-justify-content-space-between"
+        class="column is-8"
+        role="form"
+        aria-label="Formulário para criação de uma nova tarefa"
       >
-        <section>
-          <strong>00:00:00</strong>
-        </section>
-        <button class="button">
-          <span class="icon">
-            <i class="fas fa-play"></i>
-          </span>
-          <span>play</span>
-        </button>
-
-        <button class="button">
-          <span class="icon">
-            <i class="fas fa-stop"></i>
-          </span>
-          <span>stop</span>
-        </button>
+        <input
+          type="text"
+          class="input"
+          placeholder="Qual tarefa você deseja iniciar?"
+        />
+      </div>
+      <div class="column">
+        <div
+          class="is-flex is-align-items-center is-justify-content-space-between"
+        >
+          <section>
+            <strong>{{ elapsedTime }}</strong>
+          </section>
+          <button class="button" @click="startCounting">
+            <span class="icon">
+              <i class="fas fa-play"></i>
+            </span>
+            <span>play</span>
+          </button>
+          <button class="button" @click="finishCounting">
+            <span class="icon">
+              <i class="fas fa-stop"></i>
+            </span>
+            <span>stop</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -43,5 +42,26 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "FormApp",
+  data() {
+    return {
+      timeInSeconds: 0,
+    };
+  },
+  computed: {
+    elapsedTime(): string {
+      return new Date(this.timeInSeconds * 1000).toISOString().substr(11, 8);
+    },
+  }, 
+  methods: {
+    startCounting() {
+      setInterval(() => {
+        this.timeInSeconds += 1;
+      }, 1000);
+      console.log("iniciando");
+    },
+    finishCounting() {
+      this.timeInSeconds = 0;
+    },
+  },
 });
 </script>
