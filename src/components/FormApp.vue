@@ -45,22 +45,22 @@ export default defineComponent({
   data() {
     return {
       timeInSeconds: 0,
+      timer: 0,
     };
   },
   computed: {
     elapsedTime(): string {
       return new Date(this.timeInSeconds * 1000).toISOString().substr(11, 8);
     },
-  }, 
+  },
   methods: {
     startCounting() {
-      setInterval(() => {
+      this.timer = setInterval(() => {
         this.timeInSeconds += 1;
       }, 1000);
-      console.log("iniciando");
     },
     finishCounting() {
-      this.timeInSeconds = 0;
+      clearInterval(this.timer);
     },
   },
 });
