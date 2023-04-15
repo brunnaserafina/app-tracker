@@ -6,7 +6,10 @@
     <div class="column is-three-quarter">
       <FormApp @onTaskSave="saveTask" />
       <div class="list">
-        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task " />
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
+        <BoxContainer v-if="emptyList">
+          Você não está muito produtivo hoje :(
+        </BoxContainer>
       </div>
     </div>
   </main>
@@ -18,14 +21,20 @@ import SidebarMenu from "./components/SidebarMenu.vue";
 import FormApp from "./components/FormApp.vue";
 import TaskItem from "./components/TaskItem.vue";
 import ITask from "./interfaces/ITask";
+import BoxContainer from "./components/BoxContainer.vue";
 
 export default defineComponent({
   name: "App",
-  components: { SidebarMenu, FormApp, TaskItem },
+  components: { SidebarMenu, FormApp, TaskItem, BoxContainer },
   data() {
     return {
       tasks: [] as ITask[],
     };
+  },
+  computed: {
+    emptyList(): boolean {
+      return this.tasks.length === 0;
+    },
   },
   methods: {
     saveTask(task: ITask) {

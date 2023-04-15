@@ -1,5 +1,5 @@
 <template>
-  <div class="box has-text-weight-bold">
+  <BoxContainer>
     <div class="columns">
       <div class="column is-7">
         {{ task.description || "Tarefa sem descrição" }}
@@ -8,18 +8,20 @@
         <TimerComp :timeInSeconds="task.durationInSeconds" />
       </div>
     </div>
-  </div>
+  </BoxContainer>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import TimerComp from "./TimerComp.vue";
 import ITask from "../interfaces/ITask";
+import BoxContainer from "./BoxContainer.vue";
 
 export default defineComponent({
   name: "TaskItem",
   components: {
     TimerComp,
+    BoxContainer,
   },
   props: {
     task: {
@@ -30,8 +32,3 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.box {
-  background-color: #faf0ca;
-}
-</style>
