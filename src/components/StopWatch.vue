@@ -22,6 +22,7 @@ import TimerComp from "./TimerComp.vue";
 
 export default defineComponent({
   name: "StopWatch",
+  emits: ["finishTimer"],
   components: { TimerComp },
   data() {
     return {
@@ -40,6 +41,8 @@ export default defineComponent({
     finishCounting() {
       this.timerRunning = false;
       clearInterval(this.timer);
+      this.$emit("finishTimer", this.timeInSeconds);
+      this.timeInSeconds = 0;
     },
   },
 });
