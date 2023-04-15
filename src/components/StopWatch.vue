@@ -4,13 +4,13 @@
     <ButtonTimer
       @clicked="startCounting"
       icone="fas fa-play"
-      text="play"
+      text="iniciar"
       :disabled="timerRunning"
     />
     <ButtonTimer
       @clicked="finishCounting"
       icone="fas fa-stop"
-      text="stop"
+      text="parar"
       :disabled="!timerRunning"
     />
   </div>

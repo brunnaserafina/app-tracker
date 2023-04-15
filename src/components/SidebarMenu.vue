@@ -3,7 +3,7 @@
     <h1>
       <img src="../assets/logo.png" alt="Logo Alura Tracker" />
     </h1>
-    <button class="button" @click="changeTheme">{{ textButton  }}</button>
+    <button class="button" @click="changeTheme">{{ textButton }}</button>
   </header>
 </template>
 
@@ -21,9 +21,9 @@ export default defineComponent({
   computed: {
     textButton() {
       if (this.darkModeActive) {
-        return "Desativar modo escuro";
+        return "🌞";
       }
-      return "Ativar modo escuro";
+      return "🌛";
     },
   },
   methods: {
@@ -42,6 +42,15 @@ header {
   width: 100%;
   height: 100vh;
   text-align: center;
+}
+
+img {
+  width: 80%;
+}
+
+button {
+  background-color: #94b9ff;
+  border: none;
 }
 
 @media only screen and (max-width: 768px) {
