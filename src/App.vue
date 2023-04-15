@@ -11,7 +11,7 @@
       <div class="list">
         <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
         <BoxContainer v-if="emptyList">
-          Você não está muito produtivo hoje :(
+          Você não está muito produtivo(a) hoje :(
         </BoxContainer>
       </div>
     </div>
@@ -55,6 +55,7 @@ export default defineComponent({
 .list {
   padding: 1.25rem;
 }
+
 main {
   --bg-primary: #fff;
   --text-primary: #000;
