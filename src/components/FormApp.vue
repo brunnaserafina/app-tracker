@@ -13,25 +13,7 @@
         />
       </div>
       <div class="column">
-        <div
-          class="is-flex is-align-items-center is-justify-content-space-between"
-        >
-          <section>
-            <strong>{{ elapsedTime }}</strong>
-          </section>
-          <button class="button" @click="startCounting">
-            <span class="icon">
-              <i class="fas fa-play"></i>
-            </span>
-            <span>play</span>
-          </button>
-          <button class="button" @click="finishCounting">
-            <span class="icon">
-              <i class="fas fa-stop"></i>
-            </span>
-            <span>stop</span>
-          </button>
-        </div>
+        <StopWatch />
       </div>
     </div>
   </div>
@@ -39,29 +21,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import StopWatch from "./StopWatch.vue";
 
 export default defineComponent({
   name: "FormApp",
-  data() {
-    return {
-      timeInSeconds: 0,
-      timer: 0,
-    };
-  },
-  computed: {
-    elapsedTime(): string {
-      return new Date(this.timeInSeconds * 1000).toISOString().substr(11, 8);
-    },
-  },
-  methods: {
-    startCounting() {
-      this.timer = setInterval(() => {
-        this.timeInSeconds += 1;
-      }, 1000);
-    },
-    finishCounting() {
-      clearInterval(this.timer);
-    },
-  },
+  components: { StopWatch },
 });
 </script>
