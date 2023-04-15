@@ -26,6 +26,7 @@ import StopWatch from "./StopWatch.vue";
 
 export default defineComponent({
   name: "FormApp",
+  emits: ["onTaskSave"],
   components: { StopWatch },
   data() {
     return {
@@ -34,7 +35,10 @@ export default defineComponent({
   },
   methods: {
     finishTask(elapsedTime: number): void {
-      console.log(elapsedTime);
+      this.$emit("onTaskSave", {
+        durationInSeconds: elapsedTime,
+        description: this.description,
+      });
       this.description = "";
     },
   },
