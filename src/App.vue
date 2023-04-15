@@ -6,7 +6,7 @@
     <div class="column is-three-quarter">
       <FormApp @onTaskSave="saveTask" />
       <div class="list">
-        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task" />
+        <TaskItem v-for="(task, index) in tasks" :key="index" :task="task " />
       </div>
     </div>
   </main>
