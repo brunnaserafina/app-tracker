@@ -37,8 +37,8 @@
 ### 🛠️ Tecnologias utilizadas
 
 ###
-  <img align="left" alt="styled-components" height="30px" src="https://img.shields.io/badge/-Vue-4fc08d?style=flat&logo=vuedotjs&logoColor=fff" />
-
+  <img align="left" alt="vue" height="30px" src="https://img.shields.io/badge/-Vue-4fc08d?style=flat&logo=vuedotjs&logoColor=fff" />
+  <img align="left" alt="typescript" height="30px" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
 
 ###
 
