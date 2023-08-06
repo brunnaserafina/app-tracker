@@ -4,6 +4,20 @@
       <img src="../assets/logo.png" alt="Logo Alura Tracker" />
     </h1>
     <button class="button" @click="changeTheme">{{ textButton }}</button>
+    <nav class="panel mt-5">
+      <ul>
+        <li>
+          <router-link to="/" class="link">
+            <i class="fas fa-tasks"></i>
+            tarefas
+          </router-link>
+          <router-link to="/projetos">
+            <i class="fas fa-project-diagram"></i>
+            projetos
+          </router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -58,5 +72,17 @@ button {
     padding: 2.5rem;
     height: auto;
   }
+}
+.panel li {
+  margin: 8px 0;
+}
+.link {
+  color: #fff;
+}
+.link:hover {
+  color: #faf0ca;
+}
+.link.router-link-active {
+  color: #faf0ca;
 }
 </style>
