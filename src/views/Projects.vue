@@ -25,7 +25,7 @@
       <tbody>
         <tr v-for="projeto in projetos" :key="projeto.id">
           <td>{{ projeto.id }}</td>
-          <td>{{ projeto.nome }}</td>
+          <td>{{ projeto.name }}</td>
         </tr>
       </tbody>
     </table>
@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import IProject from "../interfaces/IProject.ts";
+import IProject from "@/interfaces/IProject";
 
 export default defineComponent({
   name: "ProjectsApp",
@@ -47,7 +47,7 @@ export default defineComponent({
   methods: {
     salvar() {
       const projeto: IProject = {
-        nome: this.nomeDoProjeto,
+        name: this.nomeDoProjeto,
         id: new Date().toISOString(),
       };
       this.projetos.push(projeto);
